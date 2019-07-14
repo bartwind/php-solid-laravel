@@ -3,31 +3,8 @@
 namespace App\Services;
 
 
-class OrderManager implements Orderable
+class HardCopiesOrderManager extends BaseOrderManager implements Shippable
 {
-    protected $total;
-    /**
-     * @var array
-     */
-    protected $items;
-
-    /** @var string */
-    protected $deliveryMessage;
-
-    public function __construct($items = [])
-    {
-        $this->items = $items;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function calculate()
-    {
-        $this->total = collect($this->items)->sum('price');
-        return $this;
-    }
-
     /**
      * @param int $shipping
      * @return mixed
@@ -35,16 +12,6 @@ class OrderManager implements Orderable
     public function shipping(int $shipping)
     {
         $this->total += $shipping;
-        return $this;
-    }
-
-    /**
-     * @param $discount
-     * @return mixed
-     */
-    public function discount($discount = 0.02)
-    {
-        $this->total -= $this->total * $discount;
         return $this;
     }
 
@@ -57,7 +24,6 @@ class OrderManager implements Orderable
         $this->deliveryMessage = 'Delivery will be made by ' . $company;
         return $this;
     }
-
 
     /**
      * @return object
