@@ -3,13 +3,12 @@
 namespace App\Employee;
 
 
-class Employee
+class Employee implements Employable
 {
     protected $name;
 
     protected $salary;
 
-    protected $manager;
     /**
      * @return mixed
      */
@@ -24,22 +23,6 @@ class Employee
     public function setSalary($salary): void
     {
         $this->salary = $salary;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getManager()
-    {
-        return $this->manager;
-    }
-
-    /**
-     * @param mixed $manager
-     */
-    public function setManager(Employee $manager): void
-    {
-        $this->manager = $manager;
     }
 
     /**

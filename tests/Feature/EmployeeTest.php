@@ -20,9 +20,8 @@ class EmployeeTest extends TestCase
         $devManager->calculatePerHourRate(10);
         $this->assertSame(45.5,$devManager->getSalary());
 
-        $employee = new Staff();
+        $employee = new CEO();
         $employee->setName('Daniel');
-        $employee->setManager($devManager);
         $employee->calculatePerHourRate(2);
         $this->assertSame(16.5,$employee->getSalary());
 

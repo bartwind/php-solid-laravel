@@ -2,7 +2,7 @@
 
 namespace App\Employee;
 
-class CEO extends Employee
+class CEO extends Employee implements Employable
 {
     public function setManager(Employee $manager): void
     {
