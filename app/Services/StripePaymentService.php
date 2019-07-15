@@ -8,7 +8,7 @@ namespace App\Services;
  *
  * @package App\Services
  */
-class StripePaymentService
+class StripePaymentService implements Payable
 {
     /**
      * @param $total
