@@ -7,6 +7,9 @@ bash:
 test:
 	docker exec -it laravel58 php vendor/bin/phpunit
 
+test-filter:
+	docker exec -it laravel58 php vendor/bin/phpunit --filter=it_applies_20_percent_discount_correctly
+
 migrate:
 	docker exec -it laravel58 php artisan migrate
 
