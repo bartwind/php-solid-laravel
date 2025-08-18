@@ -1,0 +1,13 @@
+services:
+  app:
+    image: php:7.4-cli
+    container_name: laravel58
+    working_dir: /app
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+    ports:
+      - "8001:8000"
+    command: tail -f /dev/null
+    user: "1000:1000"
